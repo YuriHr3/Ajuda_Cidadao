@@ -99,11 +99,11 @@ _Screenshots serão adicionados conforme a evolução do protótipo._
 | [Jetpack Compose](https://developer.android.com/compose) | Construção da interface declarativa |
 | [Material 3](https://m3.material.io/) | Componentes e padrões visuais |
 | [Room](https://developer.android.com/training/data-storage/room) | Persistência local de dados |
-| Android ViewModel | Gerenciamento de estado e lógica da interface |
-| Coroutines | Execução de operações assíncronas |
+| [Android ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) | Gerenciamento de estado e lógica da interface |
+| [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) | Execução de operações assíncronas |
 | [Gradle](https://gradle.org/) | Configuração e build do projeto |
 | [Git](https://git-scm.com/) / [GitHub](https://github.com/) | Controle de versão e colaboração |
-| GitHub Actions | Automação de testes, lint e build |
+| [GitHub Actions](https://github.com/features/actions) | Automação de testes, lint e build |
 
 <a id="arquitetura"></a>
 
