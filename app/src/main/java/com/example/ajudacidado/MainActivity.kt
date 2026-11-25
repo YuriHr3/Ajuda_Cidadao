@@ -28,6 +28,7 @@ import com.example.ajudacidado.ui.TelaListaDemandas
 import com.example.ajudacidado.ui.theme.AjudaCidadãoTheme
 import java.util.UUID
 import com.example.ajudacidado.ui.VozCidadaNavigationBar
+import com.example.ajudacidado.ui.TelaDetalheDemanda
 
 class MainActivity : ComponentActivity() {
 
@@ -68,6 +69,10 @@ fun AppVozCidada(viewModel: DemandaViewModel) {
         mutableStateOf<List<Demanda>>(emptyList())
     }
 
+    var demandaSelecionada by remember {
+        mutableStateOf<Demanda?>(null)
+    }
+
     LaunchedEffect(telaAtual) {
         if (telaAtual == 1) {
             viewModel.listarDemandas { resultado ->
@@ -79,8 +84,9 @@ fun AppVozCidada(viewModel: DemandaViewModel) {
     Scaffold(
         bottomBar = {
             VozCidadaNavigationBar(
-                telaSelecionada = telaAtual,
+                telaSelecionada = if (telaAtual == 2) 1 else telaAtual,
                 onSelecionarTela = { novaTela ->
+                    demandaSelecionada = null
                     telaAtual = novaTela
                 }
             )
@@ -120,8 +126,23 @@ fun AppVozCidada(viewModel: DemandaViewModel) {
 
                 1 -> {
                     TelaListaDemandas(
-                        demandas = demandas
+                        demandas = demandas,
+                        onSelecionarDemanda = { demanda ->
+                            demandaSelecionada = demanda
+                            telaAtual = 2
+                        }
                     )
+                }
+
+                2 -> {
+                    demandaSelecionada?.let { demanda ->
+                        TelaDetalheDemanda(
+                            demanda = demanda,
+                            onVoltar = {
+                                telaAtual = 1
+                            }
+                        )
+                    }
                 }
             }
         }
