@@ -10,11 +10,13 @@
 ![Room](https://img.shields.io/badge/Database-Room-59666C?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-orange?style=for-the-badge)
 
-[Visão geral](#-sobre-o-projeto) · [Funcionalidades](#-funcionalidades) · [Tecnologias](#-tecnologias) · [Execução](#-como-executar)
+[Visão geral](#sobre-o-projeto) · [Problemática](#problemática) · [Solução](#solução-proposta) · [Objetivos](#objetivos) · [Funcionalidades](#funcionalidades) · [Demonstração](#demonstração) · [Tecnologias](#tecnologias) · [Arquitetura](#arquitetura) · [Estrutura](#estrutura-do-projeto) · [CI](#testes-e-integração-contínua) · [Execução](#como-executar) · [Roadmap](#roadmap) · [Equipe](#equipe) · [Licença](#licença)
 
 </div>
 
 ---
+
+<a id="sobre-o-projeto"></a>
 
 ## 📖 Sobre o projeto
 
@@ -24,9 +26,13 @@ A proposta é centralizar manifestações como reclamações, sugestões e solic
 
 O projeto está sendo desenvolvido como parte de um **Projeto Integrado acadêmico**, com implementação progressiva de seu MVP.
 
+<a id="problemática"></a>
+
 ## 🚨 Problemática
 
 A população enfrenta dificuldades para expressar suas necessidades e participar efetivamente das decisões públicas. Manifestações podem ficar dispersas em diferentes canais, dificultando sua organização, identificação e análise. A falta de centralização também pode tornar mais difícil compreender quais problemas afetam a comunidade e acompanhar as demandas registradas.
+
+<a id="solução-proposta"></a>
 
 ## 💡 Solução proposta
 
@@ -34,12 +40,16 @@ O Voz Cidadã propõe uma aplicação que permite registrar demandas comunitári
 
 A solução está em desenvolvimento e, nesta etapa, concentra-se no fluxo de cadastro, armazenamento local, consulta, filtragem e detalhamento das demandas.
 
+<a id="objetivos"></a>
+
 ## 🎯 Objetivos
 
 - Facilitar o registro de problemas e necessidades da comunidade.
 - Organizar manifestações por categorias.
 - Permitir a consulta das demandas registradas.
 - Estruturar informações que possam apoiar etapas futuras de análise e acompanhamento.
+
+<a id="funcionalidades"></a>
 
 ## ✨ Funcionalidades
 
@@ -63,6 +73,8 @@ A solução está em desenvolvimento e, nesta etapa, concentra-se no fluxo de ca
 
 > Os itens futuros são propostas de evolução e não estão descritos como funcionalidades já implementadas.
 
+<a id="demonstração"></a>
+
 ## 📱 Demonstração
 
 <!-- Adicione screenshots reais do aplicativo nesta seção. Sugestão: salve as imagens em docs/images/ e use Markdown, por exemplo:
@@ -77,6 +89,8 @@ A solução está em desenvolvimento e, nesta etapa, concentra-se no fluxo de ca
 
 _Screenshots serão adicionados conforme a evolução do protótipo._
 
+<a id="tecnologias"></a>
+
 ## 🛠️ Tecnologias
 
 | Tecnologia | Aplicação no projeto |
@@ -90,6 +104,8 @@ _Screenshots serão adicionados conforme a evolução do protótipo._
 | [Gradle](https://gradle.org/) | Configuração e build do projeto |
 | [Git](https://git-scm.com/) / [GitHub](https://github.com/) | Controle de versão e colaboração |
 | GitHub Actions | Automação de testes, lint e build |
+
+<a id="arquitetura"></a>
 
 ## 🏗️ Arquitetura
 
@@ -109,6 +125,8 @@ flowchart TD
 - **Domain:** modelos, contrato do repositório e casos de uso, incluindo validação e registro.
 - **Data:** implementação do repositório e conversão entre modelos de domínio e entidades locais.
 - **Room:** banco de dados local, DAO e entidade persistida.
+
+<a id="estrutura-do-projeto"></a>
 
 ## 📂 Estrutura do projeto
 
@@ -136,6 +154,8 @@ AjudaCidadao/
 └── README.md
 ```
 
+<a id="testes-e-integração-contínua"></a>
+
 ## 🧪 Testes e integração contínua
 
 O repositório possui um workflow do **GitHub Actions** que é acionado em pushes e pull requests direcionados à branch `main`.
@@ -147,6 +167,8 @@ O pipeline executa:
 3. Build de debug (`assembleDebug`).
 
 ![CI](https://github.com/YuriHr3/Ajuda_Cidadao/actions/workflows/ci.yml/badge.svg)
+
+<a id="como-executar"></a>
 
 ## ⚙️ Como executar
 
@@ -169,6 +191,8 @@ O pipeline executa:
 4. Selecione um emulador ou conecte um dispositivo Android.
 5. Execute a configuração `app`.
 
+<a id="roadmap"></a>
+
 ## 🗺️ Roadmap
 
 - [x] Estrutura inicial da aplicação Android.
@@ -182,6 +206,8 @@ O pipeline executa:
 - [ ] Recursos de apoio por Inteligência Artificial.
 - [ ] Expansão dos recursos de acompanhamento e análise.
 
+<a id="equipe"></a>
+
 ## 👥 Equipe
 
 - **Yuri de Lima Gomes**
@@ -190,6 +216,8 @@ O pipeline executa:
 - **Raphael Gutemberg da Silva Santos**
 
 Projeto acadêmico desenvolvido como parte de um Projeto Integrado.
+
+<a id="licença"></a>
 
 ## 📄 Licença
 
