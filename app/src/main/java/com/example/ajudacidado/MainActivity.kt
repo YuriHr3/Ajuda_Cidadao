@@ -4,18 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import com.example.ajudacidado.data.local.DatabaseProvider
 import com.example.ajudacidado.data.repository.DemandaRepositoryImpl
+import com.example.ajudacidado.domain.model.Demanda
+import com.example.ajudacidado.domain.model.Prioridade
+import com.example.ajudacidado.domain.model.StatusDemanda
 import com.example.ajudacidado.ui.DemandaViewModel
 import com.example.ajudacidado.ui.DemandaViewModelFactory
+import com.example.ajudacidado.ui.TelaCadastroDemanda
 import com.example.ajudacidado.ui.theme.AjudaCidadãoTheme
+import java.util.UUID
 
 class MainActivity : ComponentActivity() {
 
@@ -38,32 +37,26 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AjudaCidadãoTheme {
-                TelaInicial(viewModel)
+                TelaCadastroDemanda(
+                    onSalvar = { titulo, descricao, categoria, localizacao ->
+
+                        val demanda = Demanda(
+                            id = UUID.randomUUID().toString(),
+                            titulo = titulo,
+                            descricao = descricao,
+                            categoria = categoria,
+                            prioridade = Prioridade.MEDIA,
+                            status = StatusDemanda.RECEBIDA,
+                            localizacao = localizacao.ifBlank { null },
+                            dataCriacao = System.currentTimeMillis()
+                        )
+
+                        viewModel.registrarDemanda(demanda) { sucesso ->
+                            // Resultado do registro
+                        }
+                    }
+                )
             }
         }
-    }
-}
-
-@Composable
-fun TelaInicial(viewModel: DemandaViewModel) {
-
-    var quantidadeDemandas by remember {
-        mutableIntStateOf(0)
-    }
-
-    LaunchedEffect(Unit) {
-        viewModel.listarDemandas { demandas ->
-            quantidadeDemandas = demandas.size
-        }
-    }
-
-    Scaffold(
-        modifier = Modifier.fillMaxSize()
-    ) { innerPadding ->
-
-        Text(
-            text = "Voz Cidadã\n\nDemandas cadastradas: $quantidadeDemandas",
-            modifier = Modifier.padding(innerPadding)
-        )
     }
 }
