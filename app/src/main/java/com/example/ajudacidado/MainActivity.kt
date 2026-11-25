@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AjudaCidadãoTheme {
                 TelaCadastroDemanda(
-                    onSalvar = { titulo, descricao, categoria, localizacao ->
+                    onSalvar = { titulo, descricao, categoria, localizacao, onResultado ->
 
                         val demanda = Demanda(
                             id = UUID.randomUUID().toString(),
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                         )
 
                         viewModel.registrarDemanda(demanda) { sucesso ->
-                            // Resultado do registro
+                            onResultado(sucesso)
                         }
                     }
                 )

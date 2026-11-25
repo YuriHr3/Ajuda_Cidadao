@@ -24,7 +24,13 @@ import com.example.ajudacidado.domain.model.Categoria
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TelaCadastroDemanda(
-    onSalvar: (String, String, Categoria, String) -> Unit,
+    onSalvar: (
+        String,
+        String,
+        Categoria,
+        String,
+        (Boolean) -> Unit
+    ) -> Unit,
     onVoltar: () -> Unit = {}
 ) {
     var titulo by remember { mutableStateOf("") }
@@ -137,7 +143,14 @@ fun TelaCadastroDemanda(
                             descricao.trim(),
                             categoriaSelecionada,
                             localizacao.trim()
-                        )
+                        ) { sucesso ->
+                            if (sucesso) {
+                                titulo = ""
+                                descricao = ""
+                                localizacao = ""
+                                categoriaSelecionada = Categoria.OUTROS
+                            }
+                        }
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
