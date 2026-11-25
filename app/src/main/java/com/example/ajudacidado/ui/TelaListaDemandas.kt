@@ -19,12 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.ajudacidado.domain.model.Demanda
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.clickable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TelaListaDemandas(
     demandas: List<Demanda>,
-    onVoltar: () -> Unit = {}
+    onVoltar: () -> Unit = {},
+    onSelecionarDemanda: (Demanda) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -60,11 +62,15 @@ fun TelaListaDemandas(
                 ) { demanda ->
 
                     Card(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                onSelecionarDemanda(demanda)
+                            },
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = 2.dp
                         )
-                    ) {
+                    ){
                         Column(
                             modifier = Modifier.padding(16.dp),
                             verticalArrangement = Arrangement.spacedBy(8.dp)
