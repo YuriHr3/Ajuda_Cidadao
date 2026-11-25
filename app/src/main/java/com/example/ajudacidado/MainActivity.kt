@@ -27,6 +27,7 @@ import com.example.ajudacidado.ui.TelaCadastroDemanda
 import com.example.ajudacidado.ui.TelaListaDemandas
 import com.example.ajudacidado.ui.theme.AjudaCidadãoTheme
 import java.util.UUID
+import com.example.ajudacidado.ui.VozCidadaNavigationBar
 
 class MainActivity : ComponentActivity() {
 
@@ -55,11 +56,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
 fun AppVozCidada(viewModel: DemandaViewModel) {
 
     var telaAtual by remember {
-        mutableStateOf("cadastro")
+        mutableIntStateOf(0)
     }
 
     var demandas by remember {
@@ -67,67 +69,60 @@ fun AppVozCidada(viewModel: DemandaViewModel) {
     }
 
     LaunchedEffect(telaAtual) {
-        if (telaAtual == "lista") {
+        if (telaAtual == 1) {
             viewModel.listarDemandas { resultado ->
                 demandas = resultado
             }
         }
     }
 
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-
-        Button(
-            onClick = {
-                telaAtual = "cadastro"
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 8.dp)
-        ) {
-            Text("Cadastrar demanda")
+    Scaffold(
+        bottomBar = {
+            VozCidadaNavigationBar(
+                telaSelecionada = telaAtual,
+                onSelecionarTela = { novaTela ->
+                    telaAtual = novaTela
+                }
+            )
         }
+    ) { paddingValues ->
 
-        Button(
-            onClick = {
-                telaAtual = "lista"
-            },
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 8.dp)
+                .fillMaxSize()
+                .padding(paddingValues)
         ) {
-            Text("Ver demandas")
-        }
 
-        when (telaAtual) {
+            when (telaAtual) {
 
-            "cadastro" -> {
-                TelaCadastroDemanda(
-                    onSalvar = { titulo, descricao, categoria, localizacao, onResultado ->
+                0 -> {
+                    TelaCadastroDemanda(
+                        onSalvar = {
+                                titulo, descricao, categoria, localizacao, onResultado ->
 
-                        val demanda = Demanda(
-                            id = UUID.randomUUID().toString(),
-                            titulo = titulo,
-                            descricao = descricao,
-                            categoria = categoria,
-                            prioridade = Prioridade.MEDIA,
-                            status = StatusDemanda.RECEBIDA,
-                            localizacao = localizacao.ifBlank { null },
-                            dataCriacao = System.currentTimeMillis()
-                        )
+                            val demanda = Demanda(
+                                id = UUID.randomUUID().toString(),
+                                titulo = titulo,
+                                descricao = descricao,
+                                categoria = categoria,
+                                prioridade = Prioridade.MEDIA,
+                                status = StatusDemanda.RECEBIDA,
+                                localizacao = localizacao.ifBlank { null },
+                                dataCriacao = System.currentTimeMillis()
+                            )
 
-                        viewModel.registrarDemanda(demanda) { sucesso ->
-                            onResultado(sucesso)
+                            viewModel.registrarDemanda(demanda) { sucesso ->
+                                onResultado(sucesso)
+                            }
                         }
-                    }
-                )
-            }
+                    )
+                }
 
-            "lista" -> {
-                TelaListaDemandas(
-                    demandas = demandas
-                )
+                1 -> {
+                    TelaListaDemandas(
+                        demandas = demandas
+                    )
+                }
             }
         }
     }
