@@ -18,7 +18,7 @@
 
 <a id="sobre-o-projeto"></a>
 
-## 📖 Sobre o projeto
+## Sobre o projeto
 
 O **Voz Cidadã** é uma aplicação Android que busca facilitar a participação cidadã, oferecendo um meio digital para registrar e organizar demandas relacionadas a problemas e necessidades da comunidade.
 
@@ -28,13 +28,13 @@ O projeto está sendo desenvolvido como parte de um **Projeto Integrado acadêmi
 
 <a id="problemática"></a>
 
-## 🚨 Problemática
+## Problemática
 
 A população enfrenta dificuldades para expressar suas necessidades e participar efetivamente das decisões públicas. Manifestações podem ficar dispersas em diferentes canais, dificultando sua organização, identificação e análise. A falta de centralização também pode tornar mais difícil compreender quais problemas afetam a comunidade e acompanhar as demandas registradas.
 
 <a id="solução-proposta"></a>
 
-## 💡 Solução proposta
+## Solução proposta
 
 O Voz Cidadã propõe uma aplicação que permite registrar demandas comunitárias em um único ambiente digital. Cada registro pode conter título, descrição, categoria e localização, além de informações de status e prioridade que integram o modelo de dados da aplicação.
 
@@ -42,7 +42,7 @@ A solução está em desenvolvimento e, nesta etapa, concentra-se no fluxo de ca
 
 <a id="objetivos"></a>
 
-## 🎯 Objetivos
+## Objetivos
 
 - Facilitar o registro de problemas e necessidades da comunidade.
 - Organizar manifestações por categorias.
@@ -51,7 +51,7 @@ A solução está em desenvolvimento e, nesta etapa, concentra-se no fluxo de ca
 
 <a id="funcionalidades"></a>
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 ### Implementadas no protótipo atual
 
@@ -75,7 +75,7 @@ A solução está em desenvolvimento e, nesta etapa, concentra-se no fluxo de ca
 
 <a id="demonstração"></a>
 
-## 📱 Demonstração
+## Demonstração
 
 <!-- Adicione screenshots reais do aplicativo nesta seção. Sugestão: salve as imagens em docs/images/ e use Markdown, por exemplo:
 
@@ -91,7 +91,7 @@ _Screenshots serão adicionados conforme a evolução do protótipo._
 
 <a id="tecnologias"></a>
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 | Tecnologia | Aplicação no projeto |
 |---|---|
@@ -107,7 +107,7 @@ _Screenshots serão adicionados conforme a evolução do protótipo._
 
 <a id="arquitetura"></a>
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 O código está organizado em camadas, separando interface, regras de domínio e implementação de dados.
 
@@ -128,7 +128,7 @@ flowchart TD
 
 <a id="estrutura-do-projeto"></a>
 
-## 📂 Estrutura do projeto
+## Estrutura do projeto
 
 ```text
 AjudaCidadao/
@@ -156,7 +156,7 @@ AjudaCidadao/
 
 <a id="testes-e-integração-contínua"></a>
 
-## 🧪 Testes e integração contínua
+## Testes e integração contínua
 
 O repositório possui um workflow do **GitHub Actions** que é acionado em pushes e pull requests direcionados à branch `main`.
 
@@ -170,7 +170,7 @@ O pipeline executa:
 
 <a id="como-executar"></a>
 
-## ⚙️ Como executar
+## Como executar
 
 ### Pré-requisitos
 
@@ -193,7 +193,7 @@ O pipeline executa:
 
 <a id="roadmap"></a>
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Estrutura inicial da aplicação Android.
 - [x] Interface de cadastro de demandas.
@@ -208,7 +208,7 @@ O pipeline executa:
 
 <a id="equipe"></a>
 
-## 👥 Equipe
+## Equipe
 
 - **Yuri de Lima Gomes**
 - **Jefferson Yuri da Silva Ferreira**
@@ -219,7 +219,7 @@ Projeto acadêmico desenvolvido como parte de um Projeto Integrado.
 
 <a id="licença"></a>
 
-## 📄 Licença
+## Licença
 
 Este projeto foi desenvolvido para fins acadêmicos. Uma licença de distribuição formal ainda não está especificada no repositório.
 
